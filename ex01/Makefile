@@ -1,20 +1,28 @@
-CXX			= clang++
-CXXFLAGS	= -Wall -Wextra -Werror
+CXX			= c++
+CXXFLAG		= -Wall -Wextra -Werror -std=c++98
+INCLUDE		= -Iinclude
 
-SRCS	= main.cpp
-NAME	= phonebook
-OBJS	= ${SRCS:%.cpp=%.o}
-
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+NAME		= exe
+SRCDIR		= src
+SRCFILES	= main.cpp
+SRC			= $(addprefix $(SRCDIR)/, $(SRCFILES)))
+OBJDIR		= obj
+OBJ 		= $(addprefix $(OBJDIR)/, $(SRCFILES:%.cpp=%.o))
 
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAG) $(OBJ) -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(INCLUDE) $(CXXFLAG) -o $@ -c $<
+
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm $(NAME)
 
 re: fclean all
 
