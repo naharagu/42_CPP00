@@ -1,8 +1,8 @@
-CXX			= clang++
+CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
+NAME	= exe
 SRCS	= megaphone.cpp
-NAME	= megaphone
 OBJS	= ${SRCS:%.cpp=%.o}
 
 $(NAME): $(OBJS)

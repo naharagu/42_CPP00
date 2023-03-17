@@ -2,7 +2,7 @@ CXX			= c++
 CXXFLAG		= -Wall -Wextra -Werror -std=c++98
 INCLUDE		= -Iinclude
 
-NAME		= exe
+NAME		= PhoneBook
 SRCDIR		= src
 SRCFILES	= main.cpp
 SRC			= $(addprefix $(SRCDIR)/, $(SRCFILES)))
