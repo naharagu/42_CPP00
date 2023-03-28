@@ -1,7 +1,7 @@
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-NAME	= exe
+NAME	= megaphone
 SRCS	= megaphone.cpp
 OBJS	= ${SRCS:%.cpp=%.o}
 
@@ -19,3 +19,7 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# $@ the file name of the target of the rule
+# $^ the names of all the dependencies, with spaces between them
+# $< the name of the first dependency
