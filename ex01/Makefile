@@ -1,8 +1,9 @@
+NAME		= 	PhoneBook
+
 CXX			= 	c++
 CXXFLAG		=	-Wall -Wextra -Werror -std=c++98
 INCLUDE		=	-I include
 
-NAME		= 	PhoneBook
 SRCDIR		= 	src
 SRCFILES	= 	main.cpp		\
 				PhoneBook.cpp	\

@@ -31,7 +31,7 @@ void PhoneBook::search_contact() const
 {
 	if (num_contact == 0)
 	{
-		std::cerr << "\033[31m"
+		std::cout << "\033[31m"
 				  << "PhoneBook is empty"
 				  << "\033[m" << std::endl
 				  << std::endl;
@@ -67,12 +67,12 @@ unsigned int PhoneBook::get_num_contact() const
 			if (1 <= input_index && input_index <= num_contact)
 				return (input[0] - '0');
 			else
-				std::cerr << "\033[31m"
+				std::cout << "\033[31m"
 						  << "Error! There is no contact with index " << input[0] - '0'
 						  << "\033[m" << std::endl;
 		}
 		else
-			std::cerr << "\033[31m"
+			std::cout << "\033[31m"
 					  << "Error! [" << input << "] is not a valid index"
 					  << "\033[m" << std::endl;
 	}
@@ -91,7 +91,7 @@ void PhoneBook::preview_phonebook() const
 
 void PhoneBook::print_error(std::string &input) const
 {
-	std::cerr << "\033[31m"
+	std::cout << "\033[31m"
 			  << "Error! [" << input << "] is not a valid command"
 			  << "\033[m" << std::endl
 			  << std::endl;
