@@ -12,21 +12,21 @@ std::string Contact::compress_to_10(std::string str) const
 		return (str);
 }
 
-void Contact::preview_contact(unsigned int index) const
+void Contact::preview_contact() const
 {
 	if (first_name.empty() || last_name.empty() || nick_name.empty())
 		return;
-	std::cout << std::setw(5) << index << "|";
+	std::cout << std::setw(5) << print_index << "|";
 	std::cout << std::setw(10) << compress_to_10(first_name) << "|";
 	std::cout << std::setw(10) << compress_to_10(last_name) << "|";
 	std::cout << std::setw(10) << compress_to_10(nick_name) << "|" << std::endl;
 }
 
-void Contact::print_contact(unsigned int index) const
+void Contact::print_contact() const
 {
 	if (first_name.empty() || last_name.empty() || nick_name.empty())
 		return;
-	std::cout << "index:          " << index << std::endl;
+	std::cout << "index:          " << print_index << std::endl;
 	std::cout << "first name:     " << first_name << std::endl;
 	std::cout << "last name:      " << last_name << std::endl;
 	std::cout << "nick name:      " << nick_name << std::endl;
@@ -44,8 +44,9 @@ std::string Contact::register_item(std::string str)
 	return (input);
 }
 
-void Contact::register_contact()
+void Contact::register_contact(unsigned int index)
 {
+	print_index = index + 1;
 	first_name = register_item("first name");
 	last_name = register_item("last name");
 	nick_name = register_item("nick name");

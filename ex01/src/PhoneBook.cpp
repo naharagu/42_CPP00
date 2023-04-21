@@ -23,15 +23,12 @@ void PhoneBook::add_contact()
 				  << "\033[m" << std::endl
 				  << std::endl;
 	}
-	num_contact++;
 	unsigned int index;
-	if (num_contact % MAX_CONTACTS == 0)
-		index = MAX_CONTACTS;
-	else
-		index = num_contact % MAX_CONTACTS;
+	index = num_contact % MAX_CONTACTS;
 	std::cout << "current num_contact: " << num_contact << std::endl;
-	std::cout << "current index: " << index << std::endl;
-	contacts[index].register_contact();
+	std::cout << "current index: " << index + 1 << std::endl;
+	contacts[index].register_contact(index);
+	num_contact++;
 }
 
 void PhoneBook::search_contact() const
@@ -46,7 +43,7 @@ void PhoneBook::search_contact() const
 	}
 	preview_phonebook();
 	unsigned int index = get_num_contact();
-	contacts[index].print_contact(index);
+	contacts[index].print_contact();
 }
 
 void PhoneBook::exit_contact() const
@@ -72,7 +69,7 @@ unsigned int PhoneBook::get_num_contact() const
 		{
 			unsigned int input_index = input[0] - '0';
 			if (1 <= input_index && input_index <= num_contact)
-				return (input[0] - '0');
+				return (input[0] - '0' - 1);
 			else
 				std::cout << "\033[31m"
 						  << "Error! There is no contact with index " << input[0] - '0'
@@ -89,9 +86,9 @@ unsigned int PhoneBook::get_num_contact() const
 void PhoneBook::preview_phonebook() const
 {
 	std::cout << "index|     first|      last|  nickname|" << std::endl;
-	for (unsigned int i = 1; i <= MAX_CONTACTS; i++)
+	for (unsigned int i = 0; i < MAX_CONTACTS; i++)
 	{
-		contacts[i].preview_contact(i);
+		contacts[i].preview_contact();
 	}
 	std::cout << std::endl;
 }

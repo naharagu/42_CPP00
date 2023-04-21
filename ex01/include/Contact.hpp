@@ -7,6 +7,7 @@
 class Contact
 {
 	private:
+		unsigned int print_index;
 		std::string first_name;
 		std::string last_name;
 		std::string nick_name;
@@ -16,9 +17,9 @@ class Contact
 	public:
 		Contact();
 		~Contact();
-		void preview_contact(unsigned int index) const;
-		void print_contact(unsigned int index) const;
-		void register_contact();
+		void preview_contact() const;
+		void print_contact() const;
+		void register_contact(unsigned int index);
 		std::string register_item(std::string str);
 		std::string compress_to_10(std::string str) const;
 };
