@@ -16,7 +16,7 @@ void PhoneBook::print_usage() const
 
 void PhoneBook::add_contact()
 {
-	if (num_contact > MAX_CONTACTS)
+	if (num_contact >= MAX_CONTACTS)
 	{
 		std::cout << "\033[32m"
 				  << "PhoneBook is full. Replacing the oldest contact..."
@@ -25,8 +25,6 @@ void PhoneBook::add_contact()
 	}
 	unsigned int index;
 	index = num_contact % MAX_CONTACTS;
-	std::cout << "current num_contact: " << num_contact << std::endl;
-	std::cout << "current index: " << index + 1 << std::endl;
 	contacts[index].register_contact(index);
 	num_contact++;
 }
