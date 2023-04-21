@@ -24,7 +24,14 @@ void PhoneBook::add_contact()
 				  << std::endl;
 	}
 	num_contact++;
-	contacts[num_contact % MAX_CONTACTS].register_contact();
+	unsigned int index;
+	if (num_contact % MAX_CONTACTS == 0)
+		index = MAX_CONTACTS;
+	else
+		index = num_contact % MAX_CONTACTS;
+	std::cout << "current num_contact: " << num_contact << std::endl;
+	std::cout << "current index: " << index << std::endl;
+	contacts[index].register_contact();
 }
 
 void PhoneBook::search_contact() const
