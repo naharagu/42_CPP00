@@ -20,14 +20,13 @@ void Contact::preview_contact(unsigned int index) const
 	std::cout << std::setw(10) << compress_to_10(first_name) << "|";
 	std::cout << std::setw(10) << compress_to_10(last_name) << "|";
 	std::cout << std::setw(10) << compress_to_10(nick_name) << "|" << std::endl;
-	std::cout << std::endl;
 }
 
-void Contact::print_contact() const
+void Contact::print_contact(unsigned int index) const
 {
 	if (first_name.empty() || last_name.empty() || nick_name.empty())
 		return;
-	std::cout << "index:          " << &index << std::endl;
+	std::cout << "index:          " << index << std::endl;
 	std::cout << "first name:     " << first_name << std::endl;
 	std::cout << "last name:      " << last_name << std::endl;
 	std::cout << "nick name:      " << nick_name << std::endl;

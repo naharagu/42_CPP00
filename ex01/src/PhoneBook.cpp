@@ -39,7 +39,7 @@ void PhoneBook::search_contact() const
 	}
 	preview_phonebook();
 	unsigned int index = get_num_contact();
-	contacts[index].print_contact();
+	contacts[index].print_contact(index);
 }
 
 void PhoneBook::exit_contact() const
